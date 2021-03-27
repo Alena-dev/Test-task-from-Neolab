@@ -1,6 +1,4 @@
 import org.junit.jupiter.api.Test;
-
-import java.util.LinkedList;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -32,7 +30,7 @@ class MainTest {
         assertAll(
                 () -> assertEquals(2.2, maxes.get(0)),
                 () -> assertEquals(3.2, maxes.get(1)),
-                () -> assertNull(maxes.get(2))
+                () -> assertEquals(2, maxes.size())
         );
     }
 
@@ -42,8 +40,7 @@ class MainTest {
         List<Double> maxes = Main.threeHighest(array);
         assertAll(
                 () -> assertEquals(1.0, maxes.get(0)),
-                () -> assertNull(maxes.get(1)),
-                () -> assertNull(maxes.get(2))
+                () -> assertEquals(1, maxes.size())
         );
     }
 
@@ -51,11 +48,7 @@ class MainTest {
     void threeHighestFromAnEmptyArray () {
         double[] array = {};
         List<Double> maxes = Main.threeHighest(array);
-        assertAll(
-                () -> assertNull(maxes.get(0)),
-                () -> assertNull(maxes.get(1)),
-                () -> assertNull(maxes.get(2))
-        );
+        assertTrue(maxes.isEmpty());
     }
 
     @Test
